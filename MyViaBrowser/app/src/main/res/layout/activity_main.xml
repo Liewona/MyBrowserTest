@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+<!--     头部-->
+    <RelativeLayout
+        android:id="@+id/title_nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/search_btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/nav_space">
+            <ImageView
+                android:id="@+id/search_icon_img"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ic_search_icon" />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/url_edit_text_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/reload_or_go_btn_view"
+            android:layout_toRightOf="@+id/search_btn_view"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <EditText
+                android:id="@+id/url_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/icon_size"
+                android:background="@null"
+                android:ellipsize="none"
+                android:imeOptions="actionSend"
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:layout_gravity="center_vertical"
+                android:textColorHint="@color/colorBlack" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/reload_or_go_btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/nav_space">
+            <ImageView
+                android:id="@+id/to_url_or_refresh_img"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:src="@drawable/ic_reload" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+
+<!--    底部导航栏-->
+
+    <LinearLayout
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nav_before">
+                <FrameLayout
+                    android:id="@+id/go_back_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_back_icon" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/go_next_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_next_icon" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/go_home_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_head_page_icon" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/go_other_web_view_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_rectangle_icon" />
+
+                    <TextView
+                        android:id="@+id/web_view_once_fragment_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="1"
+                        android:textSize="@dimen/web_view_count_font"
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/go_more_btn"
+                    android:layout_width="0dp"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_more_icon" />
+
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nav_after"
+                android:visibility="gone">
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_reload" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/go_down_btn"
+                    android:layout_width="0dp"
+                    android:background="@drawable/btn_click_bg_ripple"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/nav_space"
+                    android:paddingBottom="@dimen/nav_space">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size"
+                        android:layout_height="@dimen/icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_next_icon" />
+
+                </FrameLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    <fragment
+        android:id="@+id/web_view_show_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_nav_bar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

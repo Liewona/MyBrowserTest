@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .formSty {
+            margin-top: 45%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        .search_box {
+            border: none;
+            line-height: 40px;
+            outline: none;
+            flex: 19;
+            font-size: 16px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        .imgCs {
+            margin: 0 auto;
+            width: 110px;
+            height: 75px;
+            display: block;
+        }
+        .formFocus {
+            transition: 1s;
+            margin-top: 30%;
+        }
+        #search_btn {
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            display: none;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #search_con {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 0 10px;
+            width: 100%;
+            height: 40px;
+            margin-top: 25px;
+            display: flex;
+            overflow: hidden;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        #search_btn_box {
+            position: relative;
+            flex: 1;
+            vertical-align: middle;
+            display: inline-block;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+    </style>
+    <title>首页</title>
+</head>
+<body>
+
+<form action="http://www.baidu.com/s" class="formSty" id="formCon" method="get">
+    <img src="img/ic_main_icon.png" alt="" class="imgCs" />
+    <div id="search_con">
+        <input type="text" name="word" class="search_box" id="inputBox" />
+        <div id="search_btn_box">
+            <img src="img/search_icon.png" alt="" id="search_btn">
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    var formCon = document.getElementById("formCon");
+    var search_con = document.getElementById("search_con");
+    var inputBox = document.getElementById("inputBox");
+    var search_btn = document.getElementById("search_btn");
+    var search_btn_box = document.getElementById("search_btn_box");
+    inputBox.onclick = onFocus;
+    window.onclick = onBlur;
+
+    formCon.reset();
+    var flag = false;
+
+    search_btn_box.onclick = function(e) {
+        // 设置取消事件冒泡
+        e.preventDefault(); // 阻止默认行为，但不阻止事件
+        e.stopPropagation();  //  阻止默认事件，但是不阻止行为
+        if(inputBox.value == null || inputBox.value.trim() == "") {
+            onFocus(e)
+            inputBox.focus();
+            return;
+        }
+        formCon.submit();
+        formCOn.reset()
+    }
+
+    function onFocus(e) {
+        search_btn.style.display = "block";
+        if(formCon.classList.contains("formFocus")) {
+            return false;
+        }
+        formCon.classList.add("formFocus");
+        flag = true;
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function onBlur(e) {
+        if(inputBox.value == null || inputBox.value.trim() == "") {
+            search_btn.style.display = "none";
+        }
+        if(formCon.classList.contains("formFocus")) {
+            formCon.classList.remove("formFocus");
+        }
+        flag = false;
+    }
+
+    document.onkeydown = function(e) {
+        var ev = e || event;
+        if(ev.keyCode == 13) {
+            if(inputBox.value == null || inputBox.value.trim() == "") {
+                return false;
+            }
+            inputBox.blur();
+            formCon.submit();
+            formCOn.reset();
+        }
+    }
+
+    if(inputBox.value == null || inputBox.value.trim() == "") {
+        search_btn.style.display = "none";
+    } else {
+        search_btn.style.display = "block";
+    }
+</script>
+
+</body>
+</html>

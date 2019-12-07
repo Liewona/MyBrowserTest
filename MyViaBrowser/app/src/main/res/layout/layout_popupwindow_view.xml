@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="夜间"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="书签"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="历史"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="下载"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="隐身"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nav_before"
+        android:layout_marginTop="10dp">
+        <FrameLayout
+            android:id="@+id/go_back_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="分享"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/go_next_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="添加书签"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/go_home_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="电脑模式"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/go_other_web_view_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="工具箱"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/go_more_btn"
+            android:layout_width="0dp"
+            android:background="@drawable/btn_click_bg_ripple"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/nav_space"
+            android:paddingBottom="@dimen/nav_space">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="设置"
+                android:drawableTop="@drawable/ic_head_page_icon"
+                android:gravity="center"
+                android:drawablePadding="10dp"/>
+
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>
