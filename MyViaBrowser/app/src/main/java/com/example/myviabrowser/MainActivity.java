@@ -111,20 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         goBackView.setOnClickListener(e -> {
-            if(currentFragment.getCurrentWebView().canGoBack()) {
-                currentFragment.getCurrentWebView().goBack();
-            } else {
-                if(! currentPageMessage.backWebViewFragments.empty()) {
-                    Fragment fragment = currentPageMessage.backWebViewFragments.pop();
-                    currentFragment.getCurrentFragment().getWebView().onPause();
-                    currentPageMessage.nextWebViewFragments.push(currentFragment.getCurrentFragment());
-                    FragmentShowUtil.showFragment(fragmentManager, currentFragment.getCurrentFragment(), fragment);
-                    currentPageMessage.parentFragment.changedCurrentFragment((WebViewFragment) fragment);
-                    currentFragment.changedCurrentFragment((WebViewFragment) fragment);
-                    ((WebViewFragment) fragment).getWebView().onResume();
-                    urlEditBox.setText(currentPageMessage.titles.get(fragment));
-                }
-            }
+            webCanGoBack();
         });
 
         goNextView.setOnClickListener(e -> {
@@ -207,13 +194,13 @@ public class MainActivity extends AppCompatActivity {
                 inputText = urlEditBox.getText().toString();
                 Log.d("mylog", "setOnClickListener: " + inputText);
                 ThreadUtils.setInThread(() -> {
-//                    Log.d("mylog", "initClickListener: " + URLUtils.canConnectionByHttp(inputText));
                     if(URLUtils.canConnectionByHttp(inputText)) {
-                        WebViewHelper.openNewURL(inputText, this, (MyWebView) currentFragment.getCurrentWebView());
+                        WebViewHelper.openNewURL(URLUtils.getSchemeUrl(inputText), this, (MyWebView) currentFragment.getCurrentWebView());
                     } else {
                         WebViewHelper.searchWord(inputText, this, (MyWebView) currentFragment.getCurrentWebView());
                     }
                 });
+                urlEditBox.clearFocus();
             }
 
             MyWebView view = (MyWebView)currentFragment.getCurrentWebView();
@@ -238,8 +225,32 @@ public class MainActivity extends AppCompatActivity {
         transaction.remove(graySet).commit();
     }
 
+    private boolean webCanGoBack() {
+        if(currentFragment.getCurrentWebView().canGoBack()) {
+            currentFragment.getCurrentWebView().goBack();
+            return true;
+        } else {
+            if(! currentPageMessage.backWebViewFragments.empty()) {
+                Fragment fragment = currentPageMessage.backWebViewFragments.pop();
+                currentFragment.getCurrentFragment().getWebView().onPause();
+                currentPageMessage.nextWebViewFragments.push(currentFragment.getCurrentFragment());
+                FragmentShowUtil.showFragment(fragmentManager, currentFragment.getCurrentFragment(), fragment);
+                currentPageMessage.parentFragment.changedCurrentFragment((WebViewFragment) fragment);
+                currentFragment.changedCurrentFragment((WebViewFragment) fragment);
+                ((WebViewFragment) fragment).getWebView().onResume();
+                urlEditBox.setText(currentPageMessage.titles.get(fragment));
+                return true;
+            }
+        }
+        return false;
+    }
 
 
+    @Override
+    public void onBackPressed() {
+        if(! webCanGoBack())
+            super.onBackPressed();
+    }
 
 
 }

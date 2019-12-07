@@ -11,7 +11,7 @@ import com.example.myviabrowser.webclient.PageMessage;
 
 public class WebViewHelper {
 
-    public static String defaultUrl = "http://m.bbaidu.com/s/wd=";
+    public static String defaultUrl = "http://www.baidu.com/s?word=";
 
     public static void openNewURL(String url, Context context, MyWebView view) {
         ThreadUtils.setInUIThread(() -> {
